@@ -1,4 +1,5 @@
 #include "definitions.h"
+#include <iostream>
 
 bool operator == (qwer a, qwer b) {
 	if (a.x == b.x) {
@@ -24,13 +25,29 @@ bool checkExistPair(qwer** A, qwer checkingPair, int n) {
 	return true;
 }
 
-bool check(qwer** A, int n) {
+void check(qwer** A, int n) {
+	bool realGLS = true;
 	for (int i = 0; i < n; ++i) {
 		for (int j = 0; j < n; ++j) {
 			if (!checkExistPair(A, A[i][j], n)) {
-				return false;
+				realGLS = false;
+				break;
 			}
 		}
 	}
-	return true;
+	if (realGLS) {
+		std::cout << std::endl << "it's true Greek-Latin square!" << std::endl;
+	} else {
+		std::cout << std::endl << "it isn't Greek-Latin square!" << std::endl;
+	}
+}
+
+void print(qwer** A, int n) {
+	std::cout << std::endl;
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
+			std::cout << '<' << A[i][j].x << ',' << A[i][j].y << '>' << ' ';
+		}
+		std::cout << std::endl;
+	}
 }

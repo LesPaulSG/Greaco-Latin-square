@@ -9,9 +9,10 @@ struct qwer {
 	qwer(int newX, int newY) : x(newX), y(newY) { };
 };
 
-bool check(qwer**, int);
+void check(qwer**, int);
 bool checkExistPair(qwer**, qwer, int);
 bool operator == (qwer, qwer);
+void print(qwer**, int);
 
 
 #endif // !DEFINITIONS_H
