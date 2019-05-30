@@ -1,55 +1,13 @@
-//Greek-Latinian squre
+//Greaco-Latin squre
 //
 //Orlov S. 27.05.19 
+//
+//Laboratory work on the discipline "Algorithms and data structures"
+
 #include <iostream>
+#include "definitions.h"
 
 using namespace std;
-
-struct qwer {
-	int x;
-	int y;
-	qwer() : x(0), y(0) {};
-	qwer(int newX, int newY) : x(newX), y(newY) { };
-};
-
-bool check(qwer**, int);
-bool checkExistPair(qwer**, qwer, int);
-bool operator == (qwer, qwer);
-
-bool operator == (qwer a, qwer b) {
-	if (a.x == b.x) {
-		if (a.y == b.y) {
-			return true;
-		}
-	}
-	return false;
-}
-
-bool checkExistPair(qwer** A, qwer checkingPair, int n) {
-	int counter = 0;
-	for (int i = 0; i < n; ++i) {
-		for (int j = 0; j < n; ++j) {
-			if (A[i][j] == checkingPair) {
-				++counter;
-				if (counter > 1) {
-					return false;
-				}
-			}
-		}
-	}
-	return true;
-}
-
-bool check(qwer** A, int n) {
-	for (int i = 0; i < n; ++i) {
-		for (int j = 0; j < n; ++j) {
-			if (!checkExistPair(A, A[i][j], n)) {
-				return false;
-			}
-		}
-	}
-	return true;
-}
 
 int main()
 {
